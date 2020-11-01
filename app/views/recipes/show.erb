@@ -1,0 +1,9 @@
+<div><%= @recipe.fields[:title] %></div>
+<div><%= @recipe.fields[:image]&.url %></div>
+<div>
+  <% @recipe.fields[:tags].each do |tag| %>
+    <%= tag.fields[:name] %>
+  <% end %>
+</div>
+<div><%= @recipe.fields[:description] %></div>
+<div><%= @recipe.fields[:chef]&.fields&.fetch(:name) %></div>

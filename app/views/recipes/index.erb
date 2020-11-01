@@ -1,0 +1,11 @@
+<div>
+  <% @recipes.each do |recipe| %>
+    <div>
+      <%= link_to recipe.fields[:title], "/recipes/#{recipe.id}" %>
+
+      <div class="recipe-image">
+        <img src=<%= recipe.fields[:photo].url %> />
+      </div>
+    </div>
+  <% end %>
+</div>
