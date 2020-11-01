@@ -4,7 +4,7 @@
       <%= link_to recipe.fields[:title], "/recipes/#{recipe.id}" %>
 
       <div class="recipe-image">
-        <img src=<%= recipe.fields[:photo].url %> />
+        <%= image_tag recipe.fields[:photo].url %>
       </div>
     </div>
   <% end %>

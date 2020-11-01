@@ -1,4 +1,5 @@
 class ApplicationController < Sinatra::Base
+  include ApplicationHelper
   register Sinatra::StaticAssets
 
   configure do
@@ -6,6 +7,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    "Hello, World!"
+    redirect '/recipes'
   end
 end

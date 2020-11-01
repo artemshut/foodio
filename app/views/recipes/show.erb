@@ -1,9 +1,12 @@
 <div><%= @recipe.fields[:title] %></div>
-<div><%= @recipe.fields[:image]&.url %></div>
+<div class="recipe-image">
+  <%= image_tag @recipe.fields[:photo].url %>
+</div>
 <div>
-  <% @recipe.fields[:tags].each do |tag| %>
+  <% @recipe.fields[:tags]&.each do |tag| %>
     <%= tag.fields[:name] %>
   <% end %>
 </div>
 <div><%= @recipe.fields[:description] %></div>
-<div><%= @recipe.fields[:chef]&.fields&.fetch(:name) %></div>
+<div><%= chef_name(@recipe) %></div>
+
