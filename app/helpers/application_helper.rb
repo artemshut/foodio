@@ -15,7 +15,7 @@ module ApplicationHelper
 
   def converted_description(recipe)
     description = convert_italic(recipe.fields[:description])
-    convert_bold(description)
+    description = convert_bold(description)
     youtube_link(description)
   end
 
