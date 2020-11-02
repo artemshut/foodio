@@ -1,0 +1,9 @@
+= link_to 'Home', "/recipes"
+%h3= @recipe.fields[:title]
+.recipe-image
+  = image_tag @recipe.fields[:photo].url
+.tags-list
+  - @recipe.fields[:tags]&.each do |tag|
+    .tag= tag.fields[:name]
+.recipe-description= converted_description(@recipe)
+.chef-name= chef_name(@recipe)

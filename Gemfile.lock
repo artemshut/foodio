@@ -9,10 +9,14 @@ GEM
       multi_json (~> 1)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
     ffi (1.13.1)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    haml (5.2.0)
+      temple (>= 0.8.0)
+      tilt
     http (4.4.1)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -40,8 +44,12 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-paginate (0.1.0)
+      sinatra
     sinatra-static-assets (1.0.4)
       sinatra (>= 1.1.0)
+    sinatra-twitter-bootstrap (2.3.4)
+    temple (0.8.2)
     tilt (2.0.10)
     unf (0.1.4)
       unf_ext
@@ -53,11 +61,15 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   contentful
+  dotenv
+  haml
   rake
   require_all
   shotgun
   sinatra
+  sinatra-paginate
   sinatra-static-assets
+  sinatra-twitter-bootstrap
 
 BUNDLED WITH
    2.1.2

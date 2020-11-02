@@ -1,19 +1,25 @@
 class RecipesController < ApplicationController
   layout :layout
 
+  Struct.new('Result', :total, :size, :recipes)
+
   get '/recipes' do
-    space_id = 'kk2bw5ojx476'
-    access_token = '7ac531648a1b5e1dab6c18b0979f822a5aad0fe5f1109829b8a197eb2be4b84c'
-    client = Contentful::Client.new(space: space_id, access_token: access_token)
-    @recipes = client.entries(content_type: 'recipe')
-    erb :'recipes/index'
+    @recipes = contentful_client.entries(content_type: 'recipe')
+    @result = Struct::Result.new(@recipes.total, 2, @recipes)
+    haml :'recipes/index'
   end
 
   get '/recipes/:id' do
-    space_id = 'kk2bw5ojx476'
-    access_token = '7ac531648a1b5e1dab6c18b0979f822a5aad0fe5f1109829b8a197eb2be4b84c'
-    client = Contentful::Client.new(space: space_id, access_token: access_token)
-    @recipe = client.entry(params[:id])
-    erb :'recipes/show'
+    @recipe = contentful_client.entry(params[:id])
+    haml :'recipes/show'
+  end
+
+  helpers do
+    def contentful_client
+      @contentful_client ||= Contentful::Client.new(
+        space: ENV['CONTENTFUL_SPACE_ID'],
+        access_token: ENV['CONTENTFUL_ACCESS_TOKEN']
+      )
+    end
   end
 end
