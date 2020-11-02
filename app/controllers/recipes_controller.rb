@@ -1,11 +1,8 @@
 class RecipesController < ApplicationController
   layout :layout
 
-  Struct.new('Result', :total, :size, :recipes)
-
   get '/recipes' do
     @recipes = contentful_client.entries(content_type: 'recipe')
-    @result = Struct::Result.new(@recipes.total, 2, @recipes)
     haml :'recipes/index'
   end
 
