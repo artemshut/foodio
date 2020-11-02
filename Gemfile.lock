@@ -1,12 +1,36 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    bcrypt (3.1.16)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
+    contentful (2.15.4)
+      http (> 0.8, < 5.0)
+      multi_json (~> 1)
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
+    ffi (1.13.1)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
+    haml (5.2.0)
+      temple (>= 0.8.0)
+      tilt
+    http (4.4.1)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      http-parser (~> 1.2.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
+    http-parser (1.2.1)
+      ffi-compiler (>= 1.0, < 2.0)
+    multi_json (1.14.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    public_suffix (4.0.5)
     rack (2.2.3)
-    rack-flash3 (1.0.5)
-      rack
     rack-protection (2.1.0)
       rack
     rake (13.0.1)
@@ -19,18 +43,27 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.1.0)
       tilt (~> 2.0)
+    sinatra-static-assets (1.0.4)
+      sinatra (>= 1.1.0)
+    sinatra-twitter-bootstrap (2.3.4)
+    temple (0.8.2)
     tilt (2.0.10)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt
-  rack-flash3
-  rake
+  contentful
+  dotenv
+  haml
   require_all
   shotgun
   sinatra
+  sinatra-static-assets
+  sinatra-twitter-bootstrap
 
 BUNDLED WITH
    2.1.2

@@ -1,9 +1,15 @@
+# frozen_string_literal: true
+
 class ApplicationController < Sinatra::Base
+  include ApplicationHelper
+  register Sinatra::StaticAssets
+  register Sinatra::Twitter::Bootstrap::Assets
+
   configure do
     set :views, 'app/views'
   end
 
   get '/' do
-    "Hello, World!"
+    redirect '/recipes'
   end
 end

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-# git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-gem 'sinatra'
-gem 'rake'
-gem 'shotgun'
+gem 'contentful'
+gem 'dotenv'
+gem 'haml'
 gem 'require_all'
-gem 'bcrypt'
-gem 'rack-flash3', require: 'rack-flash'
+gem 'shotgun'
+gem 'sinatra'
+gem 'sinatra-static-assets'
+gem 'sinatra-twitter-bootstrap', require: 'sinatra/twitter-bootstrap'

@@ -1,0 +1,6 @@
+%h3 Recipes List
+.recipes-list
+  - @recipes.each do |recipe|
+    .recipe-item
+      = link_to recipe.fields[:title], "/recipes/#{recipe.id}"
+      .recipe-image= image_tag recipe.fields[:photo].url

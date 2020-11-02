@@ -1,0 +1,12 @@
+%html
+  %head
+    = bootstrap_assets
+    %link{href: "/stylesheets/application.css", rel: "stylesheet"}
+
+  %body
+  - container :fluid do
+    - row do
+      - span4
+      - span4 do
+        = yield
+      - span4
