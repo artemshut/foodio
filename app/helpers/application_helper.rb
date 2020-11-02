@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
-  CHEF_NAME_ERROR = 'Chef is unknown.'.freeze
+  CHEF_NAME_ERROR = 'Chef is unknown.'
 
   def chef_name(recipe)
     return "By: #{recipe.fields[:chef]&.fields[:name]}" if recipe.fields[:chef]
@@ -18,12 +20,19 @@ module ApplicationHelper
   end
 
   def youtube_link(description)
-    link = description.match(/\[VIDEO]\(http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?\)/)
+    link = description.match(%r{\[VIDEO]\(http(?:s?)://(?:www\.)?youtu(?:be\.com/watch\?v=|\.be/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?\)})
     return description if link.nil?
 
     description.gsub(
       link[0],
-      %Q{<br></br><iframe title="YouTube video player" width="640" height="390" src="http://www.youtube.com/embed/#{ link[1] }" frameborder="0" allowfullscreen></iframe>}
+      %(
+        <br></br>
+        <iframe title="YouTube video player" width="540" height="390"
+        src="http://www.youtube.com/embed/#{link[1]}"
+        frameborder="0"
+        allowfullscreen>
+        </iframe>
+      )
     )
   end
 
